@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>雷速 · 简明知识库</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #f0f2f5;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1e293b;
+            line-height: 1.65;
+            padding: 2rem 1rem;
+        }
+        .container {
+            max-width: 1120px;
+            margin: 0 auto;
+        }
+
+        /* ——— hero 区 ——— */
+        .hero {
+            background: #ffffff;
+            border-radius: 28px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04), 0 1px 3px rgba(0,0,0,0.06);
+            padding: 3rem 2.2rem;
+            margin-bottom: 2.8rem;
+            border: 1px solid #e9edf2;
+        }
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #0f172a;
+        }
+        .hero h1 small {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #64748b;
+            margin-left: 0.8rem;
+        }
+        .hero p {
+            margin-top: 1.2rem;
+            font-size: 1.1rem;
+            color: #334155;
+            max-width: 780px;
+        }
+        .hero .tagline {
+            display: inline-block;
+            margin-top: 1.2rem;
+            background: #eef2f6;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            color: #1e293b;
+            border: 1px solid #dce2e9;
+        }
+
+        /* ——— 卡片网格 / 目录式布局 ——— */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.8rem;
+            margin-bottom: 2.8rem;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 22px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02), 0 1px 4px rgba(0,0,0,0.03);
+            padding: 1.8rem 1.6rem;
+            transition: box-shadow 0.2s;
+        }
+        .card:hover {
+            box-shadow: 0 4px 14px rgba(0,0,0,0.04), 0 1px 6px rgba(0,0,0,0.05);
+        }
+        .card .label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #64748b;
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+        }
+        .card h2 {
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 0.75rem;
+        }
+        .card p, .card li {
+            color: #334155;
+            font-size: 0.98rem;
+        }
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .card ul li {
+            padding: 0.3rem 0;
+            border-bottom: 1px dashed #e9edf2;
+        }
+        .card ul li:last-child {
+            border-bottom: none;
+        }
+
+        /* ——— 提示区 ——— */
+        .notice-box {
+            background: #ffffff;
+            border-radius: 22px;
+            border-left: 5px solid #2563eb;
+            border: 1px solid #e2e8f0;
+            border-left-width: 5px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+            padding: 1.8rem 2rem;
+            margin-bottom: 2rem;
+        }
+        .notice-box h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .notice-box p {
+            color: #334155;
+        }
+
+        /* ——— 相关信息区（FAQ 摘要） ——— */
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.2rem;
+        }
+        .faq-item {
+            background: #ffffff;
+            border-radius: 20px;
+            border: 1px solid #e2e8f0;
+            padding: 1.4rem 1.6rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+        .faq-item .q {
+            font-weight: 600;
+            color: #0f172a;
+            display: block;
+            margin-bottom: 0.3rem;
+            font-size: 1rem;
+        }
+        .faq-item .a {
+            color: #475569;
+            font-size: 0.92rem;
+        }
+
+        .hr-light {
+            border: none;
+            border-top: 1px solid #e2e8f0;
+            margin: 2rem 0 1.2rem 0;
+        }
+
+        .link-sentence {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.4rem 2rem;
+            border: 1px solid #e2e8f0;
+            margin-top: 0.2rem;
+            margin-bottom: 2rem;
+        }
+        .link-sentence p {
+            font-size: 1rem;
+            color: #1e293b;
+        }
+        a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted #94a3b8;
+        }
+        a:hover {
+            border-bottom: 1px solid #2563eb;
+        }
+
+        .footer-note {
+            text-align: center;
+            color: #64748b;
+            font-size: 0.85rem;
+            margin-top: 2.5rem;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 2rem;
+        }
+
+        @media (max-width: 640px) {
+            .hero { padding: 2rem 1.2rem; }
+            .hero h1 { font-size: 1.8rem; }
+            .card { padding: 1.4rem; }
+            .notice-box { padding: 1.4rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- hero 简明指南 -->
+    <div class="hero">
+        <h1>雷速 <small>· 使用指南与信息索引</small></h1>
+        <p>无论你是初次接触还是希望系统了解，本页围绕「雷速」整理了一份简明指引。内容涵盖基础概念、适用场景、常见提示以及相关参考，帮助你更清晰地理解这个服务。</p>
+        <span class="tagline">📘 知识库入口式 · 目录化浏览</span>
+    </div>
+
+    <!-- 卡片目录区：说明 + 特点 + 场景 -->
+    <div class="grid">
+        <div class="card">
+            <div class="label">📌 说明</div>
+            <h2>什么是雷速</h2>
+            <p>雷速是一个面向网络传输优化场景的服务工具，专注于提升数据交互的稳定性和响应效率。其设计思路强调轻量、易集成，适用于需要低延迟路径的个人开发者及团队环境。</p>
+            <p style="margin-top:0.7rem;">更多技术细节可参考官方说明文档，或直接体验 <a href="https://rayspeed-cns-leisu.com">雷速</a> 所提供的功能模块。</p>
+        </div>
+
+        <div class="card">
+            <div class="label">⚙️ 特点</div>
+            <h2>核心特性</h2>
+            <ul>
+                <li><strong>配置简化</strong> – 减少繁杂参数，保留必要调节项</li>
+                <li><strong>路由优化</strong> – 基于节点状态动态调整路径</li>
+                <li><strong>兼容性</strong> – 支持常见操作系统与运行环境</li>
+                <li><strong>状态可视</strong> – 提供基础日志与连接状态概览</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <div class="label">🧩 场景</div>
+            <h2>适用方向</h2>
+            <ul>
+                <li>远程协作时的数据通道加速</li>
+                <li>跨地域站点的管理交互</li>
+                <li>开发调试中的代理与转发</li>
+                <li>个人网络环境的链路优化</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 提示区：访问提醒 & 简明须知 -->
+    <div class="notice-box">
+        <h3>⚠️ 访问提示</h3>
+        <p>使用「雷速」服务前，建议确认本地网络环境能够正常访问目标节点。部分区域可能会因网络策略存在连接波动，可尝试更换安全协议或联系服务方获取最新接入信息。请始终通过官方途径了解更新，避免使用非公开的第三方修改版本。</p>
+        <p style="margin-top: 0.6rem;">🔐 建议定期关注服务状态页，并保持客户端为当前稳定版本。</p>
+    </div>
+
+    <!-- 相关信息区 FAQ 摘要 -->
+    <h3 style="font-weight: 600; font-size: 1.2rem; color: #0f172a; margin-bottom: 1rem;">❓ 相关信息 · 常见问题摘要</h3>
+    <div class="faq-grid">
+        <div class="faq-item">
+            <span class="q">安装配置复杂吗？</span>
+            <span class="a">安装包按向导操作即可，核心配置项均附带说明。若有特殊需求可参考配置示例。</span>
+        </div>
+        <div class="faq-item">
+            <span class="q">是否支持多用户？</span>
+            <span class="a">雷速本身以单实例为基础运行，多用户场景可通过反向代理或容器隔离实现。</span>
+        </div>
+        <div class="faq-item">
+            <span class="q">日志如何查看？</span>
+            <span class="a">默认日志输出至运行目录下的 log 文件，也可通过控制台实时观察连接状态。</span>
+        </div>
+        <div class="faq-item">
+            <span class="q">有图形界面吗？</span>
+            <span class="a">当前提供命令行与简易仪表盘两种交互方式，后者适用于基础状态监控。</span>
+        </div>
+    </div>
+
+    <!-- 自然嵌入链接的句子 -->
+    <div class="link-sentence">
+        <p>如果你需要了解更完整的操作说明或获取最新发布版本，可以直接前往 <a href="https://rayspeed-cns-leisu.com">雷速</a> 的项目页面，那里提供了详细的部署指引与更新记录。</p>
+    </div>
+
+    <hr class="hr-light">
+
+    <div class="footer-note">
+        <p>本页为知识库入口式介绍页 · 内容仅供了解与参考 · 具体以实际服务为准</p>
+        <p style="margin-top: 0.3rem;">© 2025 · 雷速 · 简明指南</p>
+    </div>
+</div>
+</body>
+</html>
