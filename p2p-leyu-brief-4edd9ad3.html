@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>leyu · 一眼看懂用处的页面</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #f4f2ee;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      line-height: 1.7;
+      color: #1e1e1e;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    /* 深色头图 */
+    .hero {
+      background: #0f172a; 
+      background-image: radial-gradient(circle at 10% 20%, #1e293b 0%, #0f172a 90%);
+      padding: 5rem 1.5rem 3.5rem;
+      text-align: center;
+      color: #e6e9f0;
+    }
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+    }
+    .hero .sub {
+      font-size: 1.1rem;
+      color: #a6b1c9;
+      max-width: 540px;
+      margin: 0 auto 1.2rem;
+    }
+    .hero .meta-tag {
+      display: inline-block;
+      background: rgba(255,255,255,0.08);
+      padding: 0.2rem 1rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      color: #cbd5e1;
+      border: 1px solid #334155;
+    }
+    .container {
+      max-width: 780px;
+      margin: 2.5rem auto;
+      padding: 0 1.5rem 3rem;
+      flex: 1;
+    }
+    /* 浅色正文区卡片质感的段落 */
+    .post-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 2.2rem 2.4rem;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.02), 0 1px 3px rgba(0,0,0,0.04);
+      margin-bottom: 2.2rem;
+    }
+    .post-card h2 {
+      font-size: 1.6rem;
+      font-weight: 500;
+      border-left: 5px solid #2563eb;
+      padding-left: 0.9rem;
+      margin-bottom: 1.2rem;
+      color: #0f172a;
+    }
+    .post-card p {
+      margin-bottom: 1.1rem;
+    }
+    .post-card .highlight-link {
+      background: #f8fafc;
+      border-radius: 12px;
+      padding: 1rem 1.5rem;
+      margin: 1.6rem 0 0.8rem;
+      border-left: 4px solid #2563eb;
+      font-size: 1rem;
+    }
+    .post-card .highlight-link a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px dotted #2563eb;
+    }
+    .post-card .highlight-link a:hover {
+      border-bottom: 2px solid #2563eb;
+      color: #1d4ed8;
+    }
+    .blockquote {
+      background: #f1f5f9;
+      padding: 1.2rem 1.8rem;
+      border-radius: 14px;
+      margin: 1.8rem 0;
+      position: relative;
+      font-style: normal;
+      color: #1e293b;
+    }
+    .blockquote::before {
+      content: "“";
+      font-size: 2.6rem;
+      line-height: 1;
+      color: #2563eb;
+      opacity: 0.25;
+      position: absolute;
+      left: 0.6rem;
+      top: -0.1rem;
+      font-family: Georgia, serif;
+    }
+    .blockquote p {
+      margin-bottom: 0.3rem;
+    }
+    .blockquote cite {
+      display: block;
+      margin-top: 0.6rem;
+      font-size: 0.9rem;
+      color: #475569;
+    }
+    .faq-mini {
+      display: grid;
+      gap: 1.2rem;
+      margin-top: 1.6rem;
+    }
+    .faq-item {
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 0.8rem;
+    }
+    .faq-item strong {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+      color: #0f172a;
+    }
+    .faq-item p {
+      font-size: 0.95rem;
+      color: #334155;
+      margin: 0;
+    }
+    .visit-note {
+      margin-top: 2.2rem;
+      padding: 1.2rem 0 0.2rem;
+      text-align: center;
+      border-top: 1px solid #e2e8f0;
+      font-size: 0.95rem;
+      color: #475569;
+    }
+    .visit-note span {
+      background: #f1f5f9;
+      padding: 0.2rem 0.6rem;
+      border-radius: 12px;
+    }
+    .footer-note {
+      text-align: center;
+      color: #64748b;
+      font-size: 0.85rem;
+      padding: 2rem 0 2.5rem;
+      border-top: 1px solid #d9dee5;
+      background: #f4f2ee;
+      margin-top: 1rem;
+    }
+    a {
+      color: #2563eb;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: all 0.1s ease;
+    }
+    a:hover {
+      color: #1e40af;
+      text-decoration-thickness: 2px;
+    }
+    /* 响应式 */
+    @media (max-width: 550px) {
+      .hero { padding: 3.5rem 1rem 2.5rem; }
+      .hero h1 { font-size: 1.9rem; }
+      .post-card { padding: 1.5rem 1.2rem; }
+      .post-card h2 { font-size: 1.35rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <h1>leyu · 一个你或许正好需要的站点</h1>
+    <p class="sub">不绕弯子，直接告诉你它能做什么、适合谁、怎么用。</p>
+    <span class="meta-tag">信息性页面 · 用途优先</span>
+  </header>
+
+  <main class="container">
+    <article class="post-card">
+      <h2>打开网站之前，先问三个问题</h2>
+      <p>很多人第一次看到 <strong>leyu</strong> 这个域名，会忍不住想：“这是干什么的？是工具？社区？还是某个平台？” 你带着疑问点进来，说明你习惯先判断再使用，这很合理。</p>
+      <p>这个页面不讲复杂的概念。简单来说，<a href="https://p2p-leyu.com.cn">leyu</a> 是一个聚焦于特定连接场景的网站，它的设计偏向直接——你不需要在一堆装饰里找入口，核心路径很清晰。如果你平时习惯在网络上寻找某种资源交换或者信息对接的渠道，那么你很可能就是它的目标用户。</p>
+      <div class="highlight-link">
+        <span>🔗 想直接看网站本身？这是它的地址：</span>
+        <a href="https://p2p-leyu.com.cn">leyu</a>
+      </div>
+    </article>
+
+    <article class="post-card">
+      <h2>它更适合哪种使用场景？</h2>
+      <p>根据站点的结构和命名倾向，<strong>leyu</strong> 更偏向“点对点”或者“双向匹配”这一类逻辑。它不是传统的资讯站，也不是那种需要注册后慢慢探索的社区。它的节奏更紧凑：你带着目的来，找到关键信息，完成动作。</p>
+      <p>举个例子，如果你在寻找一个可以快速发起或响应某种需求的渠道，并且不希望被多余功能干扰，那么这个网站的结构会让人舒服。它没有铺满闪动的按钮，也没有铺天盖地的推荐流，每一个区块都在回答“然后呢？”</p>
+      
+      <div class="blockquote">
+        <p>“好的工具页面不会让你猜。它会在你犹豫之前，用结构告诉你下一步。” </p>
+        <cite>—— 一位常访问网络工具站的用户</cite>
+      </div>
+      
+      <p>所以与其说“推广”，不如说它是一个被精简过的入口。你不需要教程，不需要看三屏说明，只要扫一眼就能明白从哪里开始。</p>
+    </article>
+
+    <article class="post-card">
+      <h2>关于用法和提示</h2>
+      <p>当然，任何网站都有它自己的操作习惯。leyu 也不例外。建议你第一次访问时，先不要急着操作，而是把页面从上到下看一遍——它的分类、链接、以及那些不起眼的提示文字，往往就是最重要的用法说明。</p>
+      <p>另外，如果你在寻找某种特定资源或对接方式，不妨多留意页面中出现的固定关键词，它们通常会重复出现在相关的段落里，帮你确认这到底是不是你要找的那个站点。</p>
+      
+      <div class="faq-mini">
+        <div class="faq-item">
+          <strong>这个网站需要注册才能看内容吗？</strong>
+          <p>不需要。大部分信息是公开可读的。部分功能或交互可能需简单操作，但不会强制你用一大堆个人信息去换一个浏览权限。</p>
+        </div>
+        <div class="faq-item">
+          <strong>手机上看体验怎么样？</strong>
+          <p>它适配了移动端，排版紧凑，按钮和链接间距合理，不会出现“点错隔壁”的尴尬。用手机浏览器打开 <a href="https://p2p-leyu.com.cn">leyu</a> 直接看就行。</p>
+        </div>
+      </div>
+
+      <div class="visit-note">
+        <span>📌 如果你还在犹豫，不妨先打开网站停留 20 秒，比读任何介绍都直观。</span>
+      </div>
+    </article>
+
+    <article class="post-card" style="margin-bottom:0;">
+      <h2>不是万能，但恰好有用</h2>
+      <p>没有哪个网站能解决所有人的需求。leyu 的定位很明确：它不想做“大而全”，而是想把某一类事情做到顺手。你可以把它收藏起来，等需要的时候直接用；也可以看完就关掉，等某天突然想起再来。</p>
+      <p>最后再重复一次它的地址：<a href="https://p2p-leyu.com.cn">leyu</a>。把链接放在这里，不是催促你马上去，而是希望在你真的需要的时候，不用再去搜索框里费劲回忆。</p>
+      <p style="margin-top:1.6rem; color:#64748b; font-size:0.9rem;">—— 页面写于一次整理之后，希望它对你来说是清晰的参照。</p>
+    </article>
+  </main>
+
+  <footer class="footer-note">
+    <span>leyu · 用途说明页 · 内容仅为介绍性质</span>
+  </footer>
+</body>
+</html>
